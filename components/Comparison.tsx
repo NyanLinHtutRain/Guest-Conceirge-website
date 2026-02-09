@@ -12,9 +12,9 @@ const oldWay = [
 ]
 
 const newWay = [
-  { icon: Zap, text: 'Instant 24/7 responses', color: 'text-brand-orange' },
-  { icon: Star, text: 'Visual guides & maps', color: 'text-brand-orange' },
-  { icon: Check, text: 'Happy guests & staff', color: 'text-brand-orange' },
+  { icon: Zap, text: 'Instant 24/7 responses', color: 'text-brand-crimson' },
+  { icon: Star, text: 'Visual guides & maps', color: 'text-brand-crimson' },
+  { icon: Check, text: 'Happy guests & staff', color: 'text-brand-crimson' },
 ]
 
 export default function Comparison() {
@@ -110,7 +110,7 @@ export default function Comparison() {
               animate={{ opacity: [0.1, 0.3, 0.1] }}
               transition={{ duration: 3, repeat: Infinity }}
             />
-            <h3 className="text-2xl font-bold mb-6 text-brand-orange relative z-10">With HostFlow AI</h3>
+            <h3 className="text-2xl font-bold mb-6 text-brand-crimson relative z-10">With HostFlow AI</h3>
             <div className="space-y-6 relative z-10">
               {newWay.map((item, idx) => (
                 <motion.div 
@@ -121,17 +121,17 @@ export default function Comparison() {
                   transition={{ delay: 0.5 + idx * 0.1 }}
                 >
                   <motion.div 
-                    className="w-12 h-12 rounded-full bg-brand-orange/20 flex items-center justify-center"
+                    className="w-12 h-12 rounded-full bg-brand-crimson/20 flex items-center justify-center"
                     whileHover={{ 
                       scale: 1.2,
                       rotate: 360,
-                      boxShadow: '0 0 20px rgba(250, 129, 47, 0.4)',
+                      boxShadow: '0 0 20px rgba(220, 20, 60, 0.4)',
                     }}
                     transition={{ duration: 0.5 }}
                   >
                     <item.icon className={`w-6 h-6 ${item.color}`} />
                   </motion.div>
-                  <span className="text-lg text-gray-900">{item.text}</span>
+                  <span className="text-lg text-brand-crimson font-semibold">{item.text}</span>
                 </motion.div>
               ))}
             </div>

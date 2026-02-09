@@ -96,9 +96,23 @@ export default function Pricing() {
               <div className="mb-6">
                 <div className="flex items-baseline gap-3">
                   <motion.span 
-                    className="text-5xl font-bold text-brand-orange"
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
+                    className="text-5xl font-bold"
+                    style={{
+                      background: 'linear-gradient(90deg, #DC143C 0%, #F75270 50%, #DC143C 100%)',
+                      backgroundSize: '200% auto',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      filter: 'drop-shadow(0 0 10px rgba(220, 20, 60, 0.3))',
+                    }}
+                    animate={{
+                      backgroundPosition: ['0% center', '200% center'],
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{
+                      backgroundPosition: { duration: 3, repeat: Infinity, ease: 'linear' },
+                      scale: { duration: 2, repeat: Infinity },
+                    }}
                   >
                     SGD 50
                   </motion.span>
@@ -133,14 +147,7 @@ export default function Pricing() {
                 whileTap={{ scale: 0.95 }}
                 className="block w-full px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-crimson text-white font-semibold rounded-lg shadow-lg relative overflow-hidden group text-center"
               >
-                <motion.div
-                  className="absolute inset-0 bg-white"
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: '100%' }}
-                  transition={{ duration: 0.5 }}
-                  style={{ opacity: 0.2 }}
-                />
-                <span className="relative">Get Started</span>
+                <span className="relative drop-shadow-lg">Get Started</span>
               </motion.a>
             </div>
           </motion.div>
@@ -160,7 +167,27 @@ export default function Pricing() {
             
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
-                <span className="text-5xl font-bold text-gray-900">$6.99</span>
+                <motion.span 
+                  className="text-5xl font-bold"
+                  style={{
+                    background: 'linear-gradient(90deg, #DC143C 0%, #F75270 50%, #DC143C 100%)',
+                    backgroundSize: '200% auto',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    filter: 'drop-shadow(0 0 10px rgba(220, 20, 60, 0.3))',
+                  }}
+                  animate={{
+                    backgroundPosition: ['0% center', '200% center'],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: 'linear',
+                  }}
+                >
+                  $6.99
+                </motion.span>
                 <span className="text-gray-600">SGD / month</span>
               </div>
               <p className="text-gray-600 mt-2">Server maintenance & AI API costs</p>

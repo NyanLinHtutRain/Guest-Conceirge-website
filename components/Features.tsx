@@ -70,8 +70,8 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
           >
             <feature.icon className="w-12 h-12 text-brand-orange mb-4" />
           </motion.div>
-          <h3 className="text-2xl font-bold mb-3 tracking-tight text-gray-900">{feature.title}</h3>
-          <p className="text-gray-700 leading-relaxed">{feature.description}</p>
+          <h3 className="text-2xl font-bold mb-3 tracking-tight text-brand-crimson">{feature.title}</h3>
+          <p className="text-brand-crimson/80 leading-relaxed">{feature.description}</p>
         </div>
       </motion.div>
     </motion.div>
