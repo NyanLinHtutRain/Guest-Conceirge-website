@@ -8,6 +8,10 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'HostFlow AI - Your Hotel Lobby Chatbot',
   description: 'Automate guest communication with AI. Handle check-ins, answer questions, and provide instant support 24/7 for your hotel.',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
 }
 
 export default function RootLayout({
