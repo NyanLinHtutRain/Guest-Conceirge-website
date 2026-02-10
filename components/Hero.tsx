@@ -129,7 +129,7 @@ export default function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.a
-                href="https://guest-concierge-g4zv13gke-nyan-lin-htuts-projects.vercel.app/23ke-gnkq"
+                href="https://app.aihostflow.com/23ke-gnkq"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ 

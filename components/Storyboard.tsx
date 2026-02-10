@@ -182,7 +182,7 @@ export default function Storyboard() {
           className="text-center mt-16"
         >
           <motion.a
-            href="https://guest-concierge-g4zv13gke-nyan-lin-htuts-projects.vercel.app/23ke-gnkq"
+            href="https://app.aihostflow.com/23ke-gnkq"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ 
