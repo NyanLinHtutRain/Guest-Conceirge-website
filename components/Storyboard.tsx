@@ -153,19 +153,6 @@ export default function Storyboard() {
                 <p className="text-lg text-gray-700 leading-relaxed">
                   {step.description}
                 </p>
-
-                {/* Decorative line */}
-                {index < storySteps.length - 1 && (
-                  <motion.div
-                    className="mt-8 md:hidden"
-                    initial={{ scaleY: 0 }}
-                    whileInView={{ scaleY: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <div className={`w-1 h-16 mx-auto bg-gradient-to-b ${step.color} rounded-full`} />
-                  </motion.div>
-                )}
               </motion.div>
 
 

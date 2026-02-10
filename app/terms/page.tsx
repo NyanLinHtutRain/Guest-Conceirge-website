@@ -10,7 +10,7 @@ export default function TermsAndConditions() {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-brand-cream py-16 px-6 pt-32">
+      <div className="min-h-screen bg-brand-cream py-16 px-6 pt-24 sm:pt-28">
         <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
           <Link 
             href="/" 

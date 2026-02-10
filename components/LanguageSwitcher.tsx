@@ -31,15 +31,15 @@ export default function LanguageSwitcher() {
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-brand-crimson/10 to-brand-pink/10 backdrop-blur-xl border border-brand-pink/30 rounded-lg shadow-md hover:border-brand-crimson/50 transition-colors"
+        className="flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-brand-crimson/10 to-brand-pink/10 backdrop-blur-xl border border-brand-pink/30 rounded-lg shadow-md hover:border-brand-crimson/50 transition-colors"
       >
-        <span className="text-2xl">{currentLang.flag}</span>
-        <span className="hidden sm:inline text-sm font-medium text-brand-crimson">{currentLang.name}</span>
+        <span className="text-xl sm:text-2xl">{currentLang.flag}</span>
+        <span className="hidden md:inline text-sm font-medium text-brand-crimson">{currentLang.name}</span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <ChevronDown className="w-4 h-4 text-brand-crimson" />
+          <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-brand-crimson" />
         </motion.div>
       </motion.button>
 

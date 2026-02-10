@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <Header />
       <FloatingElements />
-      <main className="min-h-screen relative z-10 pt-20">
+      <main className="min-h-screen relative z-10 pt-16 sm:pt-20">
         <Hero />
         <Stats />
         <Storyboard />
