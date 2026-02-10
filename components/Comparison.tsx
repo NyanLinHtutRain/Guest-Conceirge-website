@@ -4,22 +4,24 @@ import { motion } from 'framer-motion'
 import { Phone, FileText, Frown, Zap, Star, Check } from 'lucide-react'
 import { useRef } from 'react'
 import { useInView } from 'framer-motion'
-
-const oldWay = [
-  { icon: Frown, text: 'Overwhelmed front desk', color: 'text-red-300' },
-  { icon: FileText, text: 'Repetitive questions', color: 'text-red-300' },
-  { icon: Phone, text: 'Missed inquiries', color: 'text-red-300' },
-]
-
-const newWay = [
-  { icon: Zap, text: 'Instant 24/7 responses', color: 'text-brand-crimson' },
-  { icon: Star, text: 'Visual guides & maps', color: 'text-brand-crimson' },
-  { icon: Check, text: 'Happy guests & staff', color: 'text-brand-crimson' },
-]
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Comparison() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
+  const { t } = useLanguage()
+
+  const oldWay = [
+    { icon: Frown, text: t('oldWay1'), color: 'text-red-300' },
+    { icon: FileText, text: t('oldWay2'), color: 'text-red-300' },
+    { icon: Phone, text: t('oldWay3'), color: 'text-red-300' },
+  ]
+
+  const newWay = [
+    { icon: Zap, text: t('newWay1'), color: 'text-brand-crimson' },
+    { icon: Star, text: t('newWay2'), color: 'text-brand-crimson' },
+    { icon: Check, text: t('newWay3'), color: 'text-brand-crimson' },
+  ]
 
   return (
     <section ref={ref} className="py-24 relative overflow-hidden">
@@ -61,7 +63,7 @@ export default function Comparison() {
               backgroundClip: 'text',
             }}
           >
-            Transform Your Guest Experience
+            {t('comparisonTitle')}
           </motion.span>
         </motion.h2>
 
@@ -74,7 +76,7 @@ export default function Comparison() {
             className="bg-white/80 backdrop-blur-xl border border-red-300 rounded-2xl p-8 shadow-lg"
             whileHover={{ scale: 1.02 }}
           >
-            <h3 className="text-2xl font-bold mb-6 text-red-600">Without HostFlow</h3>
+            <h3 className="text-2xl font-bold mb-6 text-red-600">{t('withoutHostFlow')}</h3>
             <div className="space-y-6">
               {oldWay.map((item, idx) => (
                 <motion.div 
@@ -110,7 +112,7 @@ export default function Comparison() {
               animate={{ opacity: [0.1, 0.3, 0.1] }}
               transition={{ duration: 3, repeat: Infinity }}
             />
-            <h3 className="text-2xl font-bold mb-6 text-brand-crimson relative z-10">With HostFlow AI</h3>
+            <h3 className="text-2xl font-bold mb-6 text-brand-crimson relative z-10">{t('withHostFlow')}</h3>
             <div className="space-y-6 relative z-10">
               {newWay.map((item, idx) => (
                 <motion.div 

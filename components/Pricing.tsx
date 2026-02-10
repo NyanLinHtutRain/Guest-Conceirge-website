@@ -4,24 +4,26 @@ import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
 import { useRef } from 'react'
 import { useInView } from 'framer-motion'
-
-const setupFeatures = [
-  'Custom AI bot built for your property',
-  'Upload your photos & visual guides',
-  'Generate branded QR codes',
-  'Complete setup & testing',
-]
-
-const maintenanceFeatures = [
-  'Server hosting & maintenance',
-  'AI API costs covered',
-  'Regular updates',
-  'Cancel anytime',
-]
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Pricing() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
+  const { t } = useLanguage()
+
+  const setupFeatures = [
+    t('setupFeature1'),
+    t('setupFeature2'),
+    t('setupFeature3'),
+    t('setupFeature4'),
+  ]
+
+  const maintenanceFeatures = [
+    t('maintenanceFeature1'),
+    t('maintenanceFeature2'),
+    t('maintenanceFeature3'),
+    t('maintenanceFeature4'),
+  ]
 
   return (
     <section ref={ref} className="py-24 relative">
@@ -57,9 +59,9 @@ export default function Pricing() {
               ease: 'linear',
             }}
           >
-            Simple, Transparent Pricing
+            {t('pricingTitle')}
           </motion.h2>
-          <p className="text-xl text-gray-700">Get started today with our launch offer</p>
+          <p className="text-xl text-gray-700 mt-4">{t('pricingSubtitle')}</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -88,10 +90,10 @@ export default function Pricing() {
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                50% OFF Launch Offer
+                {t('launchOffer')}
               </motion.div>
               
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">One-Time Setup</h3>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">{t('lifetimeSetup')}</h3>
               
               <div className="mb-6">
                 <div className="flex items-baseline gap-3">
@@ -118,7 +120,7 @@ export default function Pricing() {
                   </motion.span>
                   <span className="text-2xl text-red-500 line-through font-semibold">SGD 100</span>
                 </div>
-                <p className="text-gray-600 mt-2">One-time payment</p>
+                <p className="text-gray-600 mt-2">{t('lifetimeAccess')}</p>
               </div>
 
               <ul className="space-y-3 mb-8">
@@ -142,12 +144,12 @@ export default function Pricing() {
                 rel="noopener noreferrer"
                 whileHover={{ 
                   scale: 1.05,
-                  boxShadow: '0 10px 40px rgba(250, 129, 47, 0.4)',
+                  boxShadow: '0 10px 40px rgba(220, 20, 60, 0.4)',
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="block w-full px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-crimson text-white font-semibold rounded-lg shadow-lg relative overflow-hidden group text-center"
+                className="block w-full px-8 py-4 bg-[#DC143C] text-white font-semibold rounded-lg shadow-lg text-center"
               >
-                <span className="relative drop-shadow-lg">Get Started</span>
+                <span className="relative drop-shadow-lg">{t('getStarted')}</span>
               </motion.a>
             </div>
           </motion.div>
@@ -163,7 +165,7 @@ export default function Pricing() {
               borderColor: 'rgba(250, 177, 47, 0.8)',
             }}
           >
-            <h3 className="text-2xl font-bold mb-4 text-gray-900">Maintenance</h3>
+            <h3 className="text-2xl font-bold mb-4 text-gray-900">{t('maintenance')}</h3>
             
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
@@ -188,9 +190,9 @@ export default function Pricing() {
                 >
                   $6.99
                 </motion.span>
-                <span className="text-gray-600">SGD / month</span>
+                <span className="text-gray-600">{t('perMonth')}</span>
               </div>
-              <p className="text-gray-600 mt-2">Server maintenance & AI API costs</p>
+              <p className="text-gray-600 mt-2">{t('maintenanceDesc')}</p>
             </div>
 
             <ul className="space-y-3 mb-8">
@@ -216,9 +218,9 @@ export default function Pricing() {
 
             <div className="pt-6 border-t border-gray-200">
               <p className="text-sm text-gray-700 text-center">
-                <span className="text-brand-orange font-semibold">Cancel anytime</span>
+                <span className="text-brand-orange font-semibold">{t('cancelAnytime')}</span>
                 <br />
-                No long-term commitment
+                {t('noCommitment')}
               </p>
             </div>
           </motion.div>

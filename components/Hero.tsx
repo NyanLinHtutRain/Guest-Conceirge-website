@@ -3,19 +3,22 @@
 import { motion } from 'framer-motion'
 import { MessageCircle, Image as ImageIcon, Sparkles } from 'lucide-react'
 import Image from 'next/image'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Hero() {
+  const { t } = useLanguage()
+  
   const chatMessages: Array<{
     sender: string;
     text: string;
     type?: string;
     src?: string;
   }> = [
-    { sender: 'guest', text: "How do I turn on the heater? It's cold." },
-    { sender: 'ai', text: 'The switch is here. Look at the photo here.' },
-    { sender: 'ai', type: 'image', text: 'Heater Switch', src: '/images/heater-switch.jpg' },
-    { sender: 'ai', type: 'image', text: 'Heater Photo', src: '/images/heater-photo.jpg' },
-    { sender: 'guest', text: 'Found it. Thanks!' },
+    { sender: 'guest', text: t('chatQuestion') },
+    { sender: 'ai', text: t('chatAnswer') },
+    { sender: 'ai', type: 'image', text: t('chatHeaterSwitch'), src: '/images/heater-switch.jpg' },
+    { sender: 'ai', type: 'image', text: t('chatHeaterPhoto'), src: '/images/heater-photo.jpg' },
+    { sender: 'guest', text: t('chatThanks') },
   ]
 
   return (
@@ -110,7 +113,7 @@ export default function Hero() {
                     ease: 'linear',
                   }}
                 >
-                  Your Hotel Lobby, Powered by AI.
+                  {t('heroTitle')}
                 </motion.span>
               </h1>
             </motion.div>
@@ -121,7 +124,7 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              HostFlow AI handles guest questions 24/7. From check-in instructions to amenity details, your AI chatbot delivers instant, accurate responses.
+              {t('heroSubtitle')}
             </motion.p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -145,7 +148,7 @@ export default function Hero() {
                 />
                 <span className="relative flex items-center justify-center gap-2">
                   <Sparkles className="w-5 h-5" />
-                  See Live Demo
+                  {t('seeLiveDemo')}
                 </span>
               </motion.a>
               
@@ -161,7 +164,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-white border-2 border-brand-orange text-brand-orange font-semibold rounded-lg transition-all shadow-md text-center"
               >
-                Book via WhatsApp
+                {t('bookWhatsApp')}
               </motion.a>
             </div>
           </motion.div>

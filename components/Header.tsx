@@ -2,8 +2,12 @@
 
 import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
+import LanguageSwitcher from './LanguageSwitcher'
 
 export default function Header() {
+  const { t } = useLanguage()
+  
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-brand-cream/80 backdrop-blur-xl border-b border-brand-pink/20 shadow-lg">
       <div className="container mx-auto px-6 py-4">
@@ -62,23 +66,27 @@ export default function Header() {
             </motion.div>
           </motion.div>
 
-          {/* CTA Button */}
-          <motion.a
-            href="https://guest-concierge-g4zv13gke-nyan-lin-htuts-projects.vercel.app/23ke-gnkq"
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: '0 10px 30px rgba(220, 20, 60, 0.3)',
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="px-6 py-2.5 bg-[#DC143C] text-white font-semibold rounded-lg shadow-lg"
-          >
-            Live Demo
-          </motion.a>
+          {/* Right Side: Language Switcher & CTA Button */}
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+            
+            <motion.a
+              href="https://guest-concierge-g4zv13gke-nyan-lin-htuts-projects.vercel.app/23ke-gnkq"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: '0 10px 30px rgba(220, 20, 60, 0.3)',
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-2.5 bg-[#DC143C] text-white font-semibold rounded-lg shadow-lg"
+            >
+              {t('liveDemoBtn')}
+            </motion.a>
+          </div>
         </div>
       </div>
     </header>

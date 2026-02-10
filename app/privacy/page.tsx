@@ -1,17 +1,25 @@
+'use client'
+
 import Link from 'next/link'
+import { useLanguage } from '@/contexts/LanguageContext'
+import Header from '@/components/Header'
 
 export default function PrivacyPolicy() {
+  const { t } = useLanguage()
+  
   return (
-    <div className="min-h-screen bg-brand-cream py-16 px-6">
-      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
-        <Link 
-          href="/" 
-          className="inline-flex items-center text-brand-orange hover:text-brand-red transition-colors mb-8"
-        >
-          ← Back to Home
-        </Link>
+    <>
+      <Header />
+      <div className="min-h-screen bg-brand-cream py-16 px-6 pt-32">
+        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
+          <Link 
+            href="/" 
+            className="inline-flex items-center text-brand-orange hover:text-brand-red transition-colors mb-8"
+          >
+            ← Back to Home
+          </Link>
 
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('privacyPolicy')}</h1>
         <p className="text-gray-600 mb-8">Last Updated: February 8, 2026</p>
 
         <div className="space-y-8 text-gray-700 leading-relaxed">
@@ -195,6 +203,7 @@ export default function PrivacyPolicy() {
           </section>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   )
 }

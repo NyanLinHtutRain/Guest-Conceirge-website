@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Footer() {
+  const { t } = useLanguage()
+  
   return (
     <footer className="py-16 border-t border-brand-orange/20 relative overflow-hidden bg-white/50">
       <motion.div
@@ -21,7 +24,7 @@ export default function Footer() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h3 className="text-2xl font-bold mb-6 text-gray-900">Get in Touch</h3>
+          <h3 className="text-2xl font-bold mb-6 text-gray-900">{t('getInTouch')}</h3>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
             <motion.a
@@ -45,7 +48,7 @@ export default function Footer() {
               whileTap={{ scale: 0.95 }}
             >
               <MessageCircle className="w-5 h-5" />
-              Chat with us on WhatsApp
+              Chat with us on {t('contactWhatsApp')}
             </motion.a>
           </div>
         </motion.div>
@@ -71,19 +74,19 @@ export default function Footer() {
               className="hover:text-brand-orange transition-colors"
               whileHover={{ y: -2 }}
             >
-              Terms and Conditions
+              {t('termsConditions')}
             </motion.a>
             <motion.a 
               href="/privacy" 
               className="hover:text-brand-orange transition-colors"
               whileHover={{ y: -2 }}
             >
-              Privacy Policy
+              {t('privacyPolicy')}
             </motion.a>
           </div>
 
           <p className="text-sm text-gray-600">
-            © 2026 HostFlow AI. All rights reserved.
+            © 2026 HostFlow AI. {t('allRightsReserved')}
           </p>
         </div>
       </div>

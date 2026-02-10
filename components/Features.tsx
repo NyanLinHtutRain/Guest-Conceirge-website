@@ -4,39 +4,17 @@ import { motion } from 'framer-motion'
 import { Eye, QrCode, Globe, Shield } from 'lucide-react'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
-const features = [
-  {
-    title: 'Visual Intelligence',
-    description: "Don't just tell them. Show them. Send photos, maps, and visual guides for complex questions like amenities and directions.",
-    icon: Eye,
-    span: 'lg:col-span-2',
-    gradient: 'from-brand-pink/30 to-brand-rose/30',
-  },
-  {
-    title: 'Zero App Download',
-    description: 'Guests scan a QR code in your lobby. Instant access, no login required.',
-    icon: QrCode,
-    span: 'lg:col-span-1',
-    gradient: 'from-brand-crimson/30 to-brand-pink/30',
-  },
-  {
-    title: 'Multi-Language',
-    description: 'Fluent in 95+ languages. Perfect for international guests.',
-    icon: Globe,
-    span: 'lg:col-span-1',
-    gradient: 'from-brand-rose/30 to-brand-pink/30',
-  },
-  {
-    title: 'Smart Handoff',
-    description: 'Escalates to your staff only when human touch is needed.',
-    icon: Shield,
-    span: 'lg:col-span-2',
-    gradient: 'from-brand-pink/20 to-brand-crimson/20',
-  },
-]
+interface Feature {
+  title: string
+  description: string
+  icon: any
+  span: string
+  gradient: string
+}
 
-function FeatureCard({ feature, index }: { feature: typeof features[0]; index: number }) {
+function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
@@ -79,6 +57,39 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
 }
 
 export default function Features() {
+  const { t } = useLanguage()
+  
+  const features: Feature[] = [
+    {
+      title: t('feature1Title'),
+      description: t('feature1Desc'),
+      icon: Eye,
+      span: 'lg:col-span-2',
+      gradient: 'from-brand-pink/30 to-brand-rose/30',
+    },
+    {
+      title: t('feature2Title'),
+      description: t('feature2Desc'),
+      icon: QrCode,
+      span: 'lg:col-span-1',
+      gradient: 'from-brand-crimson/30 to-brand-pink/30',
+    },
+    {
+      title: t('feature3Title'),
+      description: t('feature3Desc'),
+      icon: Globe,
+      span: 'lg:col-span-1',
+      gradient: 'from-brand-rose/30 to-brand-pink/30',
+    },
+    {
+      title: t('feature4Title'),
+      description: t('feature4Desc'),
+      icon: Shield,
+      span: 'lg:col-span-2',
+      gradient: 'from-brand-pink/20 to-brand-crimson/20',
+    },
+  ]
+
   return (
     <section className="py-24 relative">
       <div className="absolute inset-0 bg-gradient-radial from-brand-pink/10 via-transparent to-transparent" />
@@ -110,10 +121,10 @@ export default function Features() {
               ease: 'linear',
             }}
           >
-            Built for Modern Hotels
+            {t('featuresTitle')}
           </motion.h2>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            Everything you need to automate guest communication and elevate your service.
+            {t('featuresSubtitle')}
           </p>
         </motion.div>
 

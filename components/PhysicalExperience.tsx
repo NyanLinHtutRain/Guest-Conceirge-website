@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion'
 import { QrCode } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function PhysicalExperience() {
+  const { t } = useLanguage()
+  
   return (
     <section className="py-24 relative overflow-hidden">
       <motion.div 
@@ -39,10 +42,10 @@ export default function PhysicalExperience() {
               ease: 'linear',
             }}
           >
-            Print the QR code and stick in the room!
+            {t('physicalTitle')}
           </motion.h2>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            Simple, elegant, and instantly accessible for your guests
+            {t('physicalSubtitle')}
           </p>
         </motion.div>
 
@@ -89,39 +92,39 @@ export default function PhysicalExperience() {
                     animate={{ opacity: [0.7, 1, 0.7] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    Scan for Guest Services
+                    {t('scanForServices')}
                   </motion.p>
                 </motion.div>
 
                 {/* Right: Info */}
                 <div className="space-y-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Welcome!</h3>
-                    <p className="text-gray-600">Scan the QR code to ask:</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('welcomeTitle')}</h3>
+                    <p className="text-gray-600">{t('welcomeDesc')}</p>
                   </div>
                   
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-brand-orange rounded-full" />
-                      WiFi Password
+                      {t('wifiPassword')}
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-brand-orange rounded-full" />
-                      House Rules
+                      {t('houseRules')}
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-brand-orange rounded-full" />
-                      Visual Guides
+                      {t('visualGuides')}
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-brand-orange rounded-full" />
-                      24/7 AI Assistant
+                      {t('aiAssistant')}
                     </li>
                   </ul>
 
                   <div className="pt-4 border-t border-gray-200">
                     <p className="text-sm text-gray-500">
-                      Need help? Just scan and ask!
+                      {t('needHelp')}
                     </p>
                   </div>
                 </div>
@@ -138,7 +141,7 @@ export default function PhysicalExperience() {
             className="mt-8 text-center"
           >
             <p className="text-gray-500 italic">
-              Place on bedside table, reception desk, or anywhere guests can easily see it
+              {t('placeAnywhere')}
             </p>
           </motion.div>
         </motion.div>

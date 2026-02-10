@@ -1,5 +1,6 @@
 import Hero from '@/components/Hero'
 import Header from '@/components/Header'
+import Stats from '@/components/Stats'
 import Storyboard from '@/components/Storyboard'
 import Features from '@/components/Features'
 import PhysicalExperience from '@/components/PhysicalExperience'
@@ -15,6 +16,7 @@ export default function Home() {
       <FloatingElements />
       <main className="min-h-screen relative z-10 pt-20">
         <Hero />
+        <Stats />
         <Storyboard />
         <Features />
         <PhysicalExperience />

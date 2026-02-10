@@ -3,43 +3,46 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { MessageCircle, Sparkles, CheckCircle, Star } from 'lucide-react'
-
-const storySteps = [
-  {
-    image: '/images/image 1.jpeg',
-    step: '1',
-    title: 'Guest Needs Help',
-    description: "Your guest can't find the hairdryer and gets frustrated",
-    icon: MessageCircle,
-    color: 'from-brand-crimson to-brand-pink',
-  },
-  {
-    image: '/images/image 2.jpeg',
-    step: '2',
-    title: 'Scan & Connect',
-    description: 'They scan the code and instantly connect with your AI assistant',
-    icon: Sparkles,
-    color: 'from-brand-pink to-brand-rose',
-  },
-  {
-    image: '/images/image 3.jpeg',
-    step: '3',
-    title: 'Get Instant Help',
-    description: 'AI provides visual guides and answers to all their questions',
-    icon: CheckCircle,
-    color: 'from-brand-rose to-brand-pink',
-  },
-  {
-    image: '/images/image 4.jpeg',
-    step: '4',
-    title: 'Happy Guest',
-    description: 'Satisfied guests leave 5-star reviews and return',
-    icon: Star,
-    color: 'from-brand-pink to-brand-crimson',
-  },
-]
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Storyboard() {
+  const { t } = useLanguage()
+  
+  const storySteps = [
+    {
+      image: '/images/image 1.jpeg',
+      step: '1',
+      title: t('step1Title'),
+      description: t('step1Desc'),
+      icon: MessageCircle,
+      color: 'from-brand-crimson to-brand-pink',
+    },
+    {
+      image: '/images/image 2.jpeg',
+      step: '2',
+      title: t('step2Title'),
+      description: t('step2Desc'),
+      icon: Sparkles,
+      color: 'from-brand-pink to-brand-rose',
+    },
+    {
+      image: '/images/image 3.jpeg',
+      step: '3',
+      title: t('step3Title'),
+      description: t('step3Desc'),
+      icon: CheckCircle,
+      color: 'from-brand-rose to-brand-pink',
+    },
+    {
+      image: '/images/image 4.jpeg',
+      step: '4',
+      title: t('step4Title'),
+      description: t('step4Desc'),
+      icon: Star,
+      color: 'from-brand-pink to-brand-crimson',
+    },
+  ]
+  
   return (
     <section className="py-24 relative overflow-hidden">
       <motion.div 
@@ -75,10 +78,10 @@ export default function Storyboard() {
               ease: 'linear',
             }}
           >
-            See How It Works
+            {t('storyboardTitle')}
           </motion.h2>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            From check-in to checkout, HostFlow AI creates seamless guest experiences
+            {t('storyboardSubtitle')}
           </p>
         </motion.div>
 
@@ -190,7 +193,7 @@ export default function Storyboard() {
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#DC143C] text-white font-semibold rounded-lg shadow-lg"
           >
             <Sparkles className="w-5 h-5" />
-            Try the Live Demo
+            {t('tryLiveDemo')}
           </motion.a>
         </motion.div>
       </div>
